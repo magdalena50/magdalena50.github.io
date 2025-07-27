@@ -1,27 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
   <title>Powrót do Polski</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; background: #fff0f0; }
+    h1 { font-size: 24px; color: #b30000; }
+    #countdown { font-size: 20px; margin-top: 20px; }
+  </style>
 </head>
 <body>
-  <h1>Odliczanie do powrotu do Polski</h1>
-  <div id="countdown"></div>
+  <h1>🇵🇱 Odliczanie do powrotu do Polski 🇵🇱</h1>
+  <div id="countdown">Trwa ładowanie...</div>
 
   <script>
     const countdownDate = new Date("January 10, 2027 00:00:00").getTime();
-    setInterval(function () {
+    setInterval(() => {
       const now = new Date().getTime();
       const distance = countdownDate - now;
       if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "Witamy w Polsce!";
+        document.getElementById("countdown").innerText = "Jesteś w Polsce! 🎉";
         return;
       }
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      document.getElementById("countdown").innerHTML = days + " dni, " + hours + " godz., " + minutes + " min, " + seconds + " sek";
+      document.getElementById("countdown").innerText =
+        days + " dni, " + hours + " godz., " + minutes + " min, " + seconds + " sek";
     }, 1000);
   </script>
 </body>
