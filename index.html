@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Powrót do Polski</title>
+</head>
+<body>
+  <h1>Odliczanie do powrotu do Polski</h1>
+  <div id="countdown"></div>
+
+  <script>
+    const countdownDate = new Date("January 10, 2027 00:00:00").getTime();
+    setInterval(function () {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "Witamy w Polsce!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("countdown").innerHTML = days + " dni, " + hours + " godz., " + minutes + " min, " + seconds + " sek";
+    }, 1000);
+  </script>
+</body>
+</html>
